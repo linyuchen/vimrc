@@ -1,3 +1,9 @@
+if has("win32")
+    set guifont=SimSun-ExtB:h22:cGB2312
+    set rtp+=$HOME/.vim/bundle/Vundle.vim
+else
+    set rtp+=~/.vim/bundle/Vundle.vim
+endif
 set nu
 set paste
 set encoding=utf8
@@ -13,7 +19,6 @@ set nocompatible
 filetype on
 set autoindent
 
-set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'winmanager'
@@ -32,6 +37,7 @@ Plugin 'andviro/flake8-vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'kien/ctrlp.vim'
 Plugin 'nvie/vim-flake8'
+Plugin 'jsbeautify'
 " Plugin 'Valloric/YouCompleteMe'
 call vundle#end()
 " winmanager
@@ -40,7 +46,6 @@ let g:winManagerWindowLayout = "TagList|FileExplorer"
 "let g:winManagerWindowLayout = "TagList"
 let g:AutoOpenWinManager = 1
 let g:winManagerWidth = 30
-nmap <silent> <F8> :WMToggle<cr>
 
 " scheme
 
@@ -68,6 +73,7 @@ function RunCompiler()
     endif
 endfunction
 
+nnoremap <F4> :call g:Jsbeautify()<CR>
 map <F5> :call RunCompiler()<cr>
 map <F6> :call Flake8()<cr>
-
+nmap <silent> <F8> :WMToggle<cr>
