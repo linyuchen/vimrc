@@ -14,7 +14,7 @@ home目录(和配置文件同级目录)新建 `.vim/bundle` 文件夹
 
 下载 [Vundle.vim](https://github.com/VundleVim/Vundle.vim) 放到`.vim/bundle`
 
-打开vim，按F9会自动安装插件
+打开vim，按F9会自动安装插件 (需要配置Git环境)
 
 
 ## 快捷键
