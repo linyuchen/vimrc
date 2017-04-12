@@ -77,3 +77,4 @@ nnoremap <F4> :call g:Jsbeautify()<CR>
 map <F5> :call RunCompiler()<cr>
 map <F6> :call Flake8()<cr>
 nmap <silent> <F8> :WMToggle<cr>
+map <F9> :PluginInstall<cr>
