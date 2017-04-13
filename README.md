@@ -19,6 +19,10 @@ home目录(和配置文件同级目录)新建 `.vim/bundle` 文件夹
 
 ## 快捷键
 
+F2 窗口透明(仅Win下可用, 需要[vimtweak.dll](http://www.vim.org/scripts/script.php?script_id=687))
+
+F3 关闭窗口透明(仅Win下可用)
+
 F4 格式化JS文件
 
 F5 运行python文件
