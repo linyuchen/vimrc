@@ -74,6 +74,7 @@ function RunCompiler()
 endfunction
 
 if has("win32")
+    au GUIEnter * call libcallnr("vimtweak.dll", "SetAlpha", 200)
     map <F2> :call libcallnr("vimtweak.dll", "SetAlpha",200)<cr>
     map <F3> :call libcallnr("vimtweak.dll", "SetAlpha",255)<cr>
 endif
