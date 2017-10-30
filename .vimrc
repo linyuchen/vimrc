@@ -9,6 +9,7 @@ set paste
 set encoding=utf8
 set fileencodings=UTF8,GBK
 set fileencoding=utf8
+set ts=4
 set expandtab
 set shiftwidth=4
 set softtabstop=4
