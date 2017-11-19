@@ -1,5 +1,11 @@
 # Vim配置文件
 
+## 一键安装
+
+运行install.sh即可
+
+## 手动安装
+
 配置文件路径：
 
 Windows, c:/Users/YourName/_vimrc
