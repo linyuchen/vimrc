@@ -1,7 +1,7 @@
 mkdir -p ~/.vim/bundle
 
 if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
-    git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/
+    git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
 fi
 
 if [ -f ~/.vimrc ]; then
