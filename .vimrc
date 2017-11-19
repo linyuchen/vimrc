@@ -17,6 +17,7 @@ syntax on
 syntax enable
 set nocompatible
 filetype on
+filetype plugin on
 set autoindent
 
 call vundle#begin()
@@ -33,38 +34,44 @@ Plugin 'ciaranm/inkpot'
 Plugin 'mattn/emmet-vim'
 Plugin 'python.vim'
 Plugin 'Syntastic'
-Plugin 'andviro/flake8-vim'
+"Plugin 'pylint.vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'kien/ctrlp.vim'
-Plugin 'nvie/vim-flake8'
+"Plugin 'nvie/vim-flake8'
 Plugin 'jsbeautify'
 " Plugin 'Valloric/YouCompleteMe'
 call vundle#end()
-" winmanager
 
+
+" winmanager
 let g:winManagerWindowLayout = "TagList|FileExplorer"
 "let g:winManagerWindowLayout = "TagList"
 let g:AutoOpenWinManager = 1
 let g:winManagerWidth = 30
 
-" scheme
 
+" scheme
 colorscheme inkpot
 "set background=light
 let python_highlight_all = 1
 
 
 " emmet
-
 let g:user_emmet_leader_key='<C-y>'
 
+
 " flake8
-let g:PyFlakeOnWrite = 1
-let g:PyFlakeCheckers = 'pep8,mccabe,frosted'
+"let g:PyFlakeOnWrite = 1
+"let g:PyFlakeCheckers = 'pep8,mccabe,frosted'
+
+
+" pylint
+"let g:syntastic_python_checkers=['pylint']
+"let g:pylint_onwrite = 0
+"autocmd FileType python compiler pylint
 
 
 " Run
-
 function RunCompiler()
     let fileName = expand("%:r") " 文件名
     exec "w"
@@ -73,8 +80,10 @@ function RunCompiler()
     endif
 endfunction
 
+
+" keymap
 nnoremap <F4> :call g:Jsbeautify()<CR>
 map <F5> :call RunCompiler()<cr>
-map <F6> :call Flake8()<cr>
+"map <F6> :call Flake8()<cr>
 nmap <silent> <F8> :WMToggle<cr>
 map <F9> :PluginInstall<cr>
