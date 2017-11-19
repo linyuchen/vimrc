@@ -9,6 +9,7 @@ set paste
 set encoding=utf8
 set fileencodings=UTF8,GBK
 set fileencoding=utf8
+set ts=4
 set expandtab
 set shiftwidth=4
 set softtabstop=4
@@ -82,6 +83,12 @@ endfunction
 
 
 " keymap
+if has("win32")
+    au GUIEnter * call libcallnr("vimtweak.dll", "SetAlpha", 200)
+    map <F2> :call libcallnr("vimtweak.dll", "SetAlpha",200)<cr>
+    map <F3> :call libcallnr("vimtweak.dll", "SetAlpha",255)<cr>
+endif
+
 nnoremap <F4> :call g:Jsbeautify()<CR>
 map <F5> :call RunCompiler()<cr>
 "map <F6> :call Flake8()<cr>
