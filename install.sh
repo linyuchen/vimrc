@@ -1,3 +1,15 @@
+pkg=""
+if [ -d /etc/apt ]; then
+    pkg="apt-get"
+fi
+if [ -d /etc/yum ]; then
+    pkg="yum"
+fi
+
+if [ $pkg ]; then
+    sudo $pkg install git ctags vim -y
+fi
+
 mkdir -p ~/.vim/bundle
 
 if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
@@ -10,5 +22,5 @@ fi
 
 vimrcPath=`dirname $0`/.vimrc
 
-cp -f $vimrcPath ~/.vimrc
+cp $vimrcPath ~/.vimrc
 
