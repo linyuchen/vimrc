@@ -8,13 +8,13 @@
 
 配置文件路径：
 
-Windows, c:/Users/YourName/_vimrc
+Windows, `c:/Users/YourName/_vimrc`
 
-Linux, /home/YourName/.vimrc
+Linux, `/home/YourName/.vimrc`
 
-Mac: /Users/YourName/.vimrc
+Mac: `/Users/YourName/.vimrc`
 
-## vundle配置
+### vundle配置
 
 home目录(和配置文件同级目录)新建 `.vim/bundle` 文件夹
 
