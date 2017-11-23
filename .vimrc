@@ -75,9 +75,16 @@ let g:user_emmet_leader_key='<C-y>'
 " Run
 function RunCompiler()
     let fileName = expand("%:r") " 文件名
+    let outName = fileName . ".out"
     exec "w"
     if &filetype == "python"
-	exec "!python %"
+        exec "!python %"
+    endif
+    if &filetype == "c"
+        exec ("!gcc % -o " . outName . "&&./" . outName)
+    endif
+    if &filetype == "cpp"
+        exec ("!g++ % -o " . outName . "&&./" . outName)
     endif
 endfunction
 
