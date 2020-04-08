@@ -86,6 +86,17 @@ function RunCompiler()
     if &filetype == "cpp"
         exec ("!g++ % -o " . outName . "&&./" . outName)
     endif
+	if &filetype == "go"
+        exec ("!go run . ")
+    endif
+endfunction
+
+" Build
+function Build()
+    let fileName = expand("%:r") " 文件名
+    if &filetype == "go"
+        exec ("!go build . ")
+    endif
 endfunction
 
 
@@ -98,6 +109,8 @@ endif
 
 nnoremap <F4> :call g:Jsbeautify()<CR>
 map <F5> :call RunCompiler()<cr>
-"map <F6> :call Flake8()<cr>
+map <F6> :call Build()<cr>
 nmap <silent> <F8> :WMToggle<cr>
 map <F9> :PluginInstall<cr>
+
+
