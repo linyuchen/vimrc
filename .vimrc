@@ -20,6 +20,7 @@ set nocompatible
 filetype on
 filetype plugin on
 set autoindent
+set backspace=indent,eol,start
 
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
@@ -97,6 +98,12 @@ function Build()
     if &filetype == "go"
         exec ("!go build . ")
     endif
+    if &filetype == "c"
+        exec ("!gcc % -o " . outName)
+    endif
+    if &filetype == "cpp"
+        exec ("!g++ % -o " . outName)
+    endif
 endfunction
 
 
@@ -110,7 +117,7 @@ endif
 nnoremap <F4> :call g:Jsbeautify()<CR>
 map <F5> :call RunCompiler()<cr>
 map <F6> :call Build()<cr>
-nmap <silent> <F8> :WMToggle<cr>
+map <silent> <F8> :WMToggle<cr>
 map <F9> :PluginInstall<cr>
-
-
+map <c-v> "+gp  
+map <c-c> "+y
