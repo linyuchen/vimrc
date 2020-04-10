@@ -40,7 +40,7 @@ Plugin 'Syntastic'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'kien/ctrlp.vim'
 "Plugin 'nvie/vim-flake8'
-Plugin 'jsbeautify'
+Plugin 'linyuchen/jsbeautify'
 " Plugin 'Valloric/YouCompleteMe'
 call vundle#end()
 
@@ -72,6 +72,19 @@ let g:user_emmet_leader_key='<C-y>'
 "let g:pylint_onwrite = 0
 "autocmd FileType python compiler pylint
 
+
+" format
+function Format()
+    if &filetype == "javascript"
+    	call g:Jsbeautify()
+    endif
+    if &filetype == "json"
+    	call g:Jsbeautify()
+    endif
+    if &filetype == "go"
+		exec "!go fmt ."
+    endif
+endfunction
 
 " Run
 function RunCompiler()
@@ -114,10 +127,10 @@ if has("win32")
     map <F3> :call libcallnr("vimtweak.dll", "SetAlpha",255)<cr>
 endif
 
-nnoremap <F4> :call g:Jsbeautify()<CR>
+map <F4> :call Format()<CR>
 map <F5> :call RunCompiler()<cr>
 map <F6> :call Build()<cr>
 map <silent> <F8> :WMToggle<cr>
 map <F9> :PluginInstall<cr>
-map <c-v> "+gp  
+map <c-v> "+gp
 map <c-c> "+y
