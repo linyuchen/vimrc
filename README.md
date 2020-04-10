@@ -31,7 +31,7 @@ F2 窗口透明(仅Win下可用, 需要[vimtweak.dll](http://www.vim.org/scripts
 
 F3 关闭窗口透明(仅Win下可用)
 
-F4 格式化文件，支持js、go
+F4 格式化文件，支持js、json、go
 
 F5 运行文件，支持C/C++，go，Python
 
