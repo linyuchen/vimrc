@@ -42,6 +42,7 @@ Plugin 'kien/ctrlp.vim'
 "Plugin 'nvie/vim-flake8'
 Plugin 'linyuchen/jsbeautify'
 " Plugin 'Valloric/YouCompleteMe'
+Plugin 'tell-k/vim-autopep8'
 call vundle#end()
 
 
@@ -83,6 +84,9 @@ function Format()
     endif
     if &filetype == "go"
 		exec "!go fmt ."
+    endif
+    if &filetype == "python"
+		exec "Autopep8"
     endif
 endfunction
 
@@ -127,10 +131,19 @@ if has("win32")
     map <F3> :call libcallnr("vimtweak.dll", "SetAlpha",255)<cr>
 endif
 
+function InstallPlugin()
+	exec "PluginInstall"
+	if has("win32")
+		exec "!pip install autopep8"
+	else
+		exec "!sudo pip install autopep8"
+	endif
+endfunction
+
 map <F4> :call Format()<CR>
 map <F5> :call RunCompiler()<cr>
 map <F6> :call Build()<cr>
 map <silent> <F8> :WMToggle<cr>
-map <F9> :PluginInstall<cr>
+map <F9> :call InstallPlugin()<cr>
 map <c-v> "+gp
 map <c-c> "+y
